@@ -13,7 +13,6 @@ function App() {
             <OnOff/>
             <Accordion title={'Hobbies'}/>
             <Accordion title={'Tasks for training'}/>
-
             <Rating/>
             {/*<Rating value={0}/>*/}
             {/*<Rating value={2}/>*/}
