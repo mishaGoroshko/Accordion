@@ -1,21 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 
 type AccordionType = {
     title: string
-    // collapsed: boolean
+    collapsed: boolean
 }
 
 export const Accordion: React.FC<AccordionType> = (props) => {
-    let [collapsed, setCollapsed] = useState(false)
-
-    const click = () => setCollapsed(!collapsed)
 
     return (
         <>
-            <AccordionTitle title={props.title} click={click}/>
-            {!collapsed && <AccordionBody/>}
+            <AccordionTitle title={props.title}/>
+            {!props.collapsed && <AccordionBody/>}
         </>
     )
     // if (props.collapsed) {
