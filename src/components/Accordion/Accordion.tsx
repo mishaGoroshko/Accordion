@@ -4,11 +4,12 @@ import {AccordionBody} from "./AccordionBody";
 
 type AccordionType = {
     title: string
-    // collapsed: boolean
+    collapsed: boolean
+    setCollapsed: (collapsed: boolean) => void
 }
 
-export const Accordion: React.FC<AccordionType> = (props) => {
-    let [collapsed, setCollapsed] = useState(false)
+export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed,...props}) => {
+
 
     const click = () => setCollapsed(!collapsed)
 

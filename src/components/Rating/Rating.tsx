@@ -2,25 +2,26 @@ import React, {useState} from "react";
 import {Star} from "./Star";
 
 type RatingType = {
-    // value: number
+    setStarValue: (starValue: number) => void
+    starValue: number
 }
 
-export const Rating: React.FC<RatingType> = (props) => {
-    let [value, setValue] = useState(0)
+export const Rating: React.FC<RatingType> = ({setStarValue, starValue, ...props}) => {
 
-    const clickStar1 = () => setValue(1)
-    const clickStar2 = () => setValue(2)
-    const clickStar3 = () => setValue(3)
-    const clickStar4 = () => setValue(4)
-    const clickStar5 = () => setValue(5)
+
+    const clickStar1 = () => setStarValue(1)
+    const clickStar2 = () => setStarValue(2)
+    const clickStar3 = () => setStarValue(3)
+    const clickStar4 = () => setStarValue(4)
+    const clickStar5 = () => setStarValue(5)
 
     return (
         <div>
-            <Star select={value > 0} clickStar={clickStar1}/>
-            <Star select={value > 1} clickStar={clickStar2}/>
-            <Star select={value > 2} clickStar={clickStar3}/>
-            <Star select={value > 3} clickStar={clickStar4}/>
-            <Star select={value > 4} clickStar={clickStar5}/>
+            <Star select={starValue > 0} clickStar={clickStar1}/>
+            <Star select={starValue > 1} clickStar={clickStar2}/>
+            <Star select={starValue > 2} clickStar={clickStar3}/>
+            <Star select={starValue > 3} clickStar={clickStar4}/>
+            <Star select={starValue > 4} clickStar={clickStar5}/>
         </div>
     )
 }

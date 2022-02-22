@@ -7,10 +7,9 @@ type StarType = {
 
 export const Star: React.FC<StarType> = (props) => {
     return (
-        <>
-            {props.select ? <span onClick={props.clickStar}><b>star </b></span> :
-                <span onClick={props.clickStar}>star </span>}
-        </>
+        <span onClick={props.clickStar}>
+                {props.select ? <b>star </b> : 'star '}
+        </span>
     )
     // if (props.select) {
     //     return <span><b>star </b></span>
