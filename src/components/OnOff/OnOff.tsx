@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 
-type OnOffType = {
+export type OnOffType = {
     setOn: (on: boolean) => void
     on: boolean
+    backgroundColorON?: string
+    backgroundColorOFF?: string
 }
-export const OnOff: React.FC<OnOffType> = ({setOn, on, ...props}) => {
+export const OnOff: React.FC<OnOffType> = ({setOn, on,backgroundColorON,backgroundColorOFF, ...props}) => {
 
     const onStyle = {
         width: '30px',
@@ -13,7 +15,7 @@ export const OnOff: React.FC<OnOffType> = ({setOn, on, ...props}) => {
         border: '1px solid black',
         marginLeft: '2px',
         display: 'inline-block',
-        background: on ? 'green' : 'white'
+        background: on ? backgroundColorON || 'green' : 'white'
     }
     const offStyle = {
         width: '30px',
@@ -22,7 +24,7 @@ export const OnOff: React.FC<OnOffType> = ({setOn, on, ...props}) => {
         border: '1px solid black',
         marginLeft: '2px',
         display: 'inline-block',
-        background: on ? 'white' : 'red'
+        background: on ? 'white' : backgroundColorOFF || 'red'
     }
     const indicatorStyle = {
         width: '10px',
@@ -31,7 +33,7 @@ export const OnOff: React.FC<OnOffType> = ({setOn, on, ...props}) => {
         marginLeft: '2px',
         display: 'inline-block',
         borderRadius: '5px',
-        background: on ? 'green' : 'red'
+        background: on ? backgroundColorON || 'green' : backgroundColorOFF || 'red'
     }
 
     const onClick = () => setOn(true);

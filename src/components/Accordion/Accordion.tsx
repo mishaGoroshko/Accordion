@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 
-type AccordionType = {
+export type AccordionType = {
     title: string
     collapsed: boolean
     setCollapsed: (collapsed: boolean) => void
 }
 
-export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed,...props}) => {
+export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed, ...props}) => {
 
 
     const click = () => setCollapsed(!collapsed)
@@ -19,16 +19,5 @@ export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed,...p
             {!collapsed && <AccordionBody/>}
         </>
     )
-    // if (props.collapsed) {
-    //     return <>
-    //         <AccordionTitle title={props.title}/>
-    //     </>
-    //
-    // } else {
-    //     return <>
-    //         <AccordionTitle title={props.title}/>
-    //         <AccordionBody/>
-    //     </>
-    // }
 }
 
