@@ -5,19 +5,32 @@ import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {PageTitle} from "./components/PageTitle";
 import {OnOff} from "./components/OnOff/OnOff";
+import {ItemType} from "./components/Accordion/AccordionBody";
+import {Select} from "./components/Select/Select";
 
 function App() {
 
-    let [collapsed, setCollapsed] = useState<boolean>(false)
-    let [on,setOn] = useState<boolean>(false)
+    let [collapsed, setCollapsed] = useState<boolean>(true)
+    let [on, setOn] = useState<boolean>(false)
     let [starValue, setStarValue] = useState<number>(0)
+    let items: ItemType[] = [{title: 'auto', value: 1}, {title: 'moto', value: 2}, {title: 'coding', value: 3}]
+    const onClick = () => {
+    }
+
+    const [select, setSelect] = useState('moto')
 
     return (
         <div>
             <PageTitle title={'React kabzda kak prosto'}/>
             <OnOff on={on} setOn={setOn}/>
-            <Accordion title={'Hobbies'} collapsed={collapsed} setCollapsed={setCollapsed}/>
+            <Accordion onClick={onClick} title={'Hobbies'} collapsed={collapsed} setCollapsed={setCollapsed}
+                       items={items}/>
             <Rating starValue={starValue} setStarValue={setStarValue}/>
+            <Select
+                items={[{title: 'Gilera', value: 1}, {title: 'Honda', value: 2}, {title: 'Suzuki', value: 3}]}
+                select={select}
+                setSelect={setSelect}
+            />
 
 
             {/*<Accordion title={'Tasks for training'}/>*/}

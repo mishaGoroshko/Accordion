@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
 import {AccordionTitle} from "./AccordionTitle";
-import {AccordionBody} from "./AccordionBody";
+import {AccordionBody, ItemType} from "./AccordionBody";
 
 export type AccordionType = {
     title: string
     collapsed: boolean
     setCollapsed: (collapsed: boolean) => void
+    items: ItemType[]
+    onClick: (value: any) => void
 }
 
-export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed, ...props}) => {
+export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed, items, onClick, ...props}) => {
 
 
     const click = () => setCollapsed(!collapsed)
@@ -16,7 +18,7 @@ export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed, ...
     return (
         <>
             <AccordionTitle title={props.title} click={click}/>
-            {!collapsed && <AccordionBody/>}
+            {!collapsed && <AccordionBody onClick={onClick} items={items}/>}
         </>
     )
 }

@@ -1,0 +1,32 @@
+.divHeader{
+    width: 80px;
+}
+
+.title {
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+    align-items:center;
+    margin-top: 5px;
+    height: 30px;
+    width: 80px;
+    font-weight: bold;
+    background-color: #86aeee;
+    cursor: pointer;
+}
+
+.select{
+    border:1px solid black;
+    font-weight: normal;
+    height: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25)
+}
+
+.title:hover{
+    background-color: #c6d6ee;
+}
+
+.shadow{
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+}
