@@ -13,7 +13,7 @@ type SelectType = {
     setSelect: (select: string) => void
 }
 
-export const Select: React.FC<SelectType> = ({items, select, setSelect, ...props}) => {
+export const Select = React.memo<SelectType> (({items, select, setSelect, ...props}) => {
     let [collapsed, setCollapsed] = useState<boolean>(false)
     let [titleHover, setTitleHover] = useState(select)
 
@@ -68,4 +68,4 @@ export const Select: React.FC<SelectType> = ({items, select, setSelect, ...props
 
         </div>
     );
-}
+})

@@ -10,7 +10,7 @@ type AccordionBodyType = {
     onClick: (value: any) => void
 }
 
-export const AccordionBody: React.FC<AccordionBodyType> = ({items, onClick, ...props}) => {
+export const AccordionBody = React.memo<AccordionBodyType>(({items, onClick, ...props}) => {
     return (
         <ul>
             {items.map((el, index) => <li
@@ -19,4 +19,4 @@ export const AccordionBody: React.FC<AccordionBodyType> = ({items, onClick, ...p
             >{el.title}</li>)}
         </ul>
     );
-}
+})

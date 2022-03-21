@@ -2,13 +2,13 @@ import React from 'react';
 
 type AccordionTitleType = {
     title: string
-    click: ()=> void
+    click: () => void
 }
 
-export const AccordionTitle: React.FC<AccordionTitleType> = (props) => {
+export const AccordionTitle = React.memo<AccordionTitleType>((props) => {
     return (
         <h3 onClick={props.click}>
             {props.title}
         </h3>
     );
-}
+})

@@ -10,9 +10,8 @@ export type AccordionType = {
     onClick: (value: any) => void
 }
 
-export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed, items, onClick, ...props}) => {
 
-
+export const Accordion = React.memo<AccordionType>(({setCollapsed, collapsed, items, onClick, ...props}) => {
     const click = () => setCollapsed(!collapsed)
 
     return (
@@ -21,5 +20,5 @@ export const Accordion: React.FC<AccordionType> = ({setCollapsed, collapsed, ite
             {!collapsed && <AccordionBody onClick={onClick} items={items}/>}
         </>
     )
-}
+})
 

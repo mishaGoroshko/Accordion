@@ -6,7 +6,7 @@ type RatingType = {
     starValue: number
 }
 
-export const Rating: React.FC<RatingType> = ({setStarValue, starValue, ...props}) => {
+export const Rating = React.memo<RatingType> (({setStarValue, starValue, ...props}) => {
 
 
     const clickStar1 = () => setStarValue(1)
@@ -24,6 +24,6 @@ export const Rating: React.FC<RatingType> = ({setStarValue, starValue, ...props}
             <Star select={starValue > 4} clickStar={clickStar5}/>
         </div>
     )
-}
+})
 
 

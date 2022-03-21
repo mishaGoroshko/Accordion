@@ -6,7 +6,7 @@ export type OnOffType = {
     backgroundColorON?: string
     backgroundColorOFF?: string
 }
-export const OnOff: React.FC<OnOffType> = ({setOn, on,backgroundColorON,backgroundColorOFF, ...props}) => {
+export const OnOff = React.memo<OnOffType> ( ({setOn, on,backgroundColorON,backgroundColorOFF, ...props}) => {
 
     const onStyle = {
         width: '30px',
@@ -45,4 +45,4 @@ export const OnOff: React.FC<OnOffType> = ({setOn, on,backgroundColorON,backgrou
             <div style={indicatorStyle}></div>
         </div>
     );
-}
+})
