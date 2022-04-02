@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 export default {
     title: 'useMemo'
@@ -46,9 +46,14 @@ const Counter1 = React.memo((props: { count: number }) => {
     return <div>{props.count}</div>
 })
 
-const SecretUsers = (props: { users: Array<string> }) => {
+const SecretUsers = (props: { users: Array<string>; addUser: ()=>void }) => {
     console.log('SecretUsers')
-    return <div>{props.users.map((u, i) => <div key={i}>{u}</div>)}</div>
+    return (
+        <div>
+            <button onClick={props.addUser}>add user</button>
+            {props.users.map((u, i) => <div key={i}>{u}</div>)}
+        </div>
+    )
 }
 const Users = React.memo(SecretUsers)
 
@@ -59,12 +64,12 @@ export const useMemoHelpToReactMemo = () => {
     const [users, setUsers] = useState(['Miha', 'Alina', 'Polina', 'Sasha'])
 
 
-    const addUser = () => setUsers([...users, 'Ivanich' + ' ' + new Date().getTime()]);
-    const newUsersArr = useMemo(()=>users.filter(el => el.indexOf('i') > -1),[users]) ;
+    const addUser = useCallback(() => setUsers([...users, 'Ivanich' + ' ' + new Date().getTime()]), [users]);
+    const newUsersArr = useMemo(() => users.filter(el => el.indexOf('i') > -1), [users]);
     return <>
         <button onClick={() => setCounter(counter + 1)}>+</button>
-        <button onClick={addUser}>add user</button>
+
         <Counter1 count={counter}/>
-        <Users users={newUsersArr}/>
+        <Users users={newUsersArr} addUser={addUser}/>
     </>
 }
