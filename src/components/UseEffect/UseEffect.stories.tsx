@@ -28,11 +28,16 @@ export const SetTimeoutExample = () => {
     console.log('render Example')
     const [counter, setCounter] = useState<string>()
 
+    const stopInterval = (id: any) => () => clearInterval(id);
+
+
     useEffect(() => {
-        setInterval(() => {
+        const intervalID = setInterval(() => {
             setCounter(new Date().toLocaleTimeString())
         }, 1000)
-    }, [counter])
+
+        return stopInterval(intervalID)
+    }, [])
 
 
     return <>
