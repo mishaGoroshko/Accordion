@@ -7,6 +7,7 @@ import {PageTitle} from "./components/PageTitle";
 import {OnOff} from "./components/OnOff/OnOff";
 import {ItemType} from "./components/Accordion/AccordionBody";
 import {Select} from "./components/Select/Select";
+import {Clock} from './components/Clock/Clock';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
                 select={select}
                 setSelect={setSelect}
             />
+            <Clock/>
 
 
             {/*<Accordion title={'Tasks for training'}/>*/}

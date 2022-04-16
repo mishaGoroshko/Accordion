@@ -36,7 +36,8 @@ export const SetTimeoutExample = () => {
             setCounter(new Date().toLocaleTimeString())
         }, 1000)
 
-        return stopInterval(intervalID)
+        return
+        // stopInterval(intervalID)
     }, [])
 
 
