@@ -32,7 +32,7 @@ function App() {
                 select={select}
                 setSelect={setSelect}
             />
-            <Clock/>
+            <Clock mode={false}/>
 
 
             {/*<Accordion title={'Tasks for training'}/>*/}
