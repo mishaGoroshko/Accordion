@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 
 import './App.css';
-import {Accordion} from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
-import {PageTitle} from "./components/PageTitle";
-import {OnOff} from "./components/OnOff/OnOff";
-import {ItemType} from "./components/Accordion/AccordionBody";
-import {Select} from "./components/Select/Select";
+import {Accordion} from './components/Accordion/Accordion';
+import {Rating} from './components/Rating/Rating';
+import {PageTitle} from './components/PageTitle';
+import {OnOff} from './components/OnOff/OnOff';
+import {ItemType} from './components/Accordion/AccordionBody';
+import {Select} from './components/Select/Select';
 import {Clock} from './components/Clock/Clock';
+import {OnOffNew} from './components/OnOffNew/OnOffNew';
 
 function App() {
 
@@ -23,7 +24,10 @@ function App() {
     return (
         <div>
             <PageTitle title={'React kabzda kak prosto'}/>
-            <OnOff on={on} setOn={setOn}/>
+            <div style={{display: 'flex', gap: '300px'}}>
+                <OnOff on={on} setOn={setOn}/>
+                <OnOffNew/>
+            </div>
             <Accordion onClick={onClick} title={'Hobbies'} collapsed={collapsed} setCollapsed={setCollapsed}
                        items={items}/>
             <Rating starValue={starValue} setStarValue={setStarValue}/>
@@ -32,7 +36,7 @@ function App() {
                 select={select}
                 setSelect={setSelect}
             />
-            <Clock mode={false}/>
+            {/*<Clock mode={false}/>*/}
 
 
             {/*<Accordion title={'Tasks for training'}/>*/}
